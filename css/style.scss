@@ -1,0 +1,143 @@
+$bc: #10101e;
+$color: #2d77cc;
+
+@mixin button {
+  width: 200px;
+  border: 1px solid $color;
+  color: lighten($color, 20%);
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px 0;
+  margin: 16px auto 0;
+  cursor: pointer;
+  &:hover {
+    background-color: $color;
+    box-shadow: 0 0 20px $color;
+  }
+}
+
+@mixin modal {
+  background-color: $bc;
+  color: white;
+  padding-top: 150px;
+  width: 380px;
+  border-radius: 4px;
+  // transition: transform 0.4s;
+  z-index: 2;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  &.hidden {
+    transform: translate(0, -500px);
+  }
+}
+
+
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-size: 14px;
+  background-color: $bc;
+  color: #fff;
+
+  #open {
+    @include button;
+    &.hidden {
+      display: none;
+    }
+  }
+
+  #close {
+    display: none;
+    &.hidden {
+      @include button;
+    }}
+
+
+  #mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    &.hidden {
+      display: none;
+    }
+  }
+
+  #modal1 {
+    @include modal;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    #close {
+      @include button;
+    }
+  }
+
+  #modal2 {
+    @include modal;
+    position: relative;
+    top: 40px;
+    left: 0;
+    right: 0;
+  }
+
+  .datetime {
+    color: #ffffff;
+    width: 340px;
+    padding: 15px 18px;
+    border: 3px solid $color;
+    border-radius: 5px;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.2));
+
+
+    &:hover {
+      background-color: $color;
+      box-shadow: 0 0 30px $color
+    }
+
+    .date {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 3px;
+    }
+
+    .time {
+      font-size: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        &:not(:last-child) {
+          position: relative;
+          margin: 0 6px;
+          font-weight: 600px;
+          text-align: center;
+          letter-spacing: 3px;
+        }
+        &:last-child {
+          background-color: $color;
+          font-size: 30px;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin-top: 10px;
+          margin-right: 7px;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+}
+
+.container {
+  display: flex;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template</title>
+  <link rel="icon" type="image/png" href="//www.google.com/s2/favicons?domain=jacinto.design">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="initClock()">
+  <!-- 時刻 -->
+  <div class="container">
+
+    <div id="open">
+      時刻を表示
+    </div>
+    <div id="close">
+      閉じる
+    </div>
+
+    <div id="mask" class="hidden"></div>
+
+    <section id="modal1" class="hidden">
+      <div class="datetime">
+        <div class="date">
+          <span id="dayname">Day</span>,
+          <span id="month">Month</span>
+          <span id="daynum">00</span>,
+          <span id="year">Year</span>
+        </div>
+        <div class="time">
+          <span id="hour">00</span>:
+          <span id="minutes">00</span>:
+          <span id="seconds">00</span>
+          <span id="period">AM</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- script -->
+  <script src="script.js"></script>
+</body>
+</html>
